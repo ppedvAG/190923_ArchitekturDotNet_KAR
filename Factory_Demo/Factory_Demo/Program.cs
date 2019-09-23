@@ -10,6 +10,14 @@ namespace Factory_Demo
     {
         static void Main(string[] args)
         {
+            Kantine michisKantine = new Kantine();
+
+            IEssen lecker = michisKantine.GibEssen();
+
+            lecker.Beschreibung();
+
+            Console.WriteLine("---ENDE---");
+            Console.ReadLine();
         }
     }
 }
