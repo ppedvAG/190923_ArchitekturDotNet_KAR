@@ -43,6 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthRepository.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="LoggerRepository.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="PersonenRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
