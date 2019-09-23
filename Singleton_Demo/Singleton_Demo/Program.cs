@@ -10,9 +10,14 @@ namespace Singleton_Demo
     {
         static void Main(string[] args)
         {
-            Logger.Instance.Log("Hallo Welt");
-            Logger.Instance.Log("Demo ");
-            Logger.Instance.Log("Ich logge etwas ...");
+            //Logger.Instance.Log("Hallo Welt");
+            //Logger.Instance.Log("Demo ");
+            //Logger.Instance.Log("Ich logge etwas ...");
+
+            Parallel.For(0, 1000, i =>
+             {
+                 Logger.Instance.Log($"Eintrag {i}");
+             });
 
 
             Console.WriteLine("---ENDE---");
