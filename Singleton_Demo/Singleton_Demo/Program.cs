@@ -10,6 +10,13 @@ namespace Singleton_Demo
     {
         static void Main(string[] args)
         {
+            Logger.Instance.Log("Hallo Welt");
+            Logger.Instance.Log("Demo ");
+            Logger.Instance.Log("Ich logge etwas ...");
+
+
+            Console.WriteLine("---ENDE---");
+            Console.ReadKey();
         }
     }
 }
