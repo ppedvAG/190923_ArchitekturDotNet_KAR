@@ -10,6 +10,12 @@ namespace Composite_Demo
     {
         static void Main(string[] args)
         {
+
+
+
+
+            Console.WriteLine("---ENDE---");
+            Console.ReadKey();
         }
     }
 }
