@@ -10,6 +10,13 @@ namespace Fassade_Demo
     {
         static void Main(string[] args)
         {
+            Amazon a = new Amazon(new SMSSystem(), new Rechnungssystem(), new DPDLieferdienst(), new Lagersystem());
+
+            a.Bestellen(33, 12);
+
+
+            Console.WriteLine("---ENDE---");
+            Console.ReadKey();
         }
     }
 }
