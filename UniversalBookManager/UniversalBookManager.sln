@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.UniversalBookManager.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.UniversalBookManager.Data.EF.Tests", "ppedv.UniversalBookManager.Data.EF.Tests\ppedv.UniversalBookManager.Data.EF.Tests.csproj", "{55F7E1A6-F385-4E82-AA35-11CC306B16A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.UniversalBookManager.Logic", "ppedv.UniversalBookManager.Logic\ppedv.UniversalBookManager.Logic.csproj", "{F10B5757-E5E9-4C1F-AE33-8ABA65CC9E85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{55F7E1A6-F385-4E82-AA35-11CC306B16A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55F7E1A6-F385-4E82-AA35-11CC306B16A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55F7E1A6-F385-4E82-AA35-11CC306B16A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F10B5757-E5E9-4C1F-AE33-8ABA65CC9E85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F10B5757-E5E9-4C1F-AE33-8ABA65CC9E85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F10B5757-E5E9-4C1F-AE33-8ABA65CC9E85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F10B5757-E5E9-4C1F-AE33-8ABA65CC9E85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +49,7 @@ Global
 		{868A3D1A-3BE7-4C9B-B2F7-4E304347BE78} = {B930361A-C656-4951-8A10-DD63142AD668}
 		{FE9A0AB7-2052-4C70-A17E-E8093E43E3DD} = {9F1A6B44-2B7B-4732-AAD8-8F9513FD8460}
 		{55F7E1A6-F385-4E82-AA35-11CC306B16A3} = {9F1A6B44-2B7B-4732-AAD8-8F9513FD8460}
+		{F10B5757-E5E9-4C1F-AE33-8ABA65CC9E85} = {11A0C8D9-4E92-4D63-9A7D-167B303E9C5A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {719CD482-4663-47B4-90DE-56B044475EB8}
