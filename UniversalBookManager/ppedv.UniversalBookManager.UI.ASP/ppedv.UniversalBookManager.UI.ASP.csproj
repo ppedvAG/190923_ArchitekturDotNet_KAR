@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -179,6 +185,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ppedv.UniversalBookManager.Data.EF\ppedv.UniversalBookManager.Data.EF.csproj">
+      <Project>{fe9a0ab7-2052-4c70-a17e-e8093e43e3dd}</Project>
+      <Name>ppedv.UniversalBookManager.Data.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ppedv.UniversalBookManager.Domain\ppedv.UniversalBookManager.Domain.csproj">
+      <Project>{868a3d1a-3be7-4c9b-b2f7-4e304347be78}</Project>
+      <Name>ppedv.UniversalBookManager.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ppedv.UniversalBookManager.Logic\ppedv.UniversalBookManager.Logic.csproj">
+      <Project>{f10b5757-e5e9-4c1f-ae33-8aba65cc9e85}</Project>
+      <Name>ppedv.UniversalBookManager.Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -15,7 +15,7 @@ namespace ppedv.UniversalBookManager.UI.ASP.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Hey das ist ein TEst";
 
             return View();
         }
