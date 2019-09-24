@@ -20,5 +20,16 @@ namespace ppedv.UniversalBookManager.Data.EF
         public DbSet<Book> Book { get; set; }
         public DbSet<Store> Store { get; set; }
         public DbSet<Inventory> Inventory { get; set; }
+
+        // Konfiguration:
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Inventory>()
+                        .HasRequired<Book>(x => x.Book)
+                        .WithMany()
+                        .WillCascadeOnDelete();
+        }
     }
 }

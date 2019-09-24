@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ppedv.UniversalBookManager.UI.ASP.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,10 @@ namespace ppedv.UniversalBookManager.UI.ASP
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // https://stackoverflow.com/questions/14400643/accept-comma-and-dot-as-decimal-separator
+            ModelBinders.Binders.Add(typeof(decimal), new DecimalModelBinder());
+            ModelBinders.Binders.Add(typeof(decimal?), new DecimalModelBinder());
         }
     }
 }

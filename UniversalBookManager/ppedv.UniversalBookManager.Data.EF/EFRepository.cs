@@ -17,12 +17,19 @@ namespace ppedv.UniversalBookManager.Data.EF
 
         public void Add<T>(T item) where T : Entity
         {
-           context.Set<T>().Add(item); // Findet das richtige DBSet in der Klasse EFContext
+            context.Set<T>().Add(item); // Findet das richtige DBSet in der Klasse EFContext
         }
 
         public void Delete<T>(T item) where T : Entity
         {
-            context.Set<T>().Remove(item);
+            try
+            {
+                context.Set<T>().Remove(item);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         public IEnumerable<T> GetAll<T>() where T : Entity
@@ -37,13 +44,21 @@ namespace ppedv.UniversalBookManager.Data.EF
 
         public void Save()
         {
-            context.SaveChanges();
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
+
 
         public void Update<T>(T item) where T : Entity
         {
             T loadedItem = GetByID<T>(item.ID); // ELement neu aus der DB holen
-            if(loadedItem != null)
+            if (loadedItem != null)
             {
                 // Wenn es noch existiert -> Update
                 context.Entry(loadedItem).CurrentValues.SetValues(item);
