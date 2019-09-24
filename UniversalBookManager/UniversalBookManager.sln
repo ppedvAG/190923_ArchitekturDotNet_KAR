@@ -3,9 +3,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{B930361A-C656-4951-8A10-DD63142AD668}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{9F1A6B44-2B7B-4732-AAD8-8F9513FD8460}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logic", "Logic", "{11A0C8D9-4E92-4D63-9A7D-167B303E9C5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{9F86F023-45AA-40DA-B962-A6DCA0694E9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.UniversalBookManager.Domain", "ppedv.UniversalBookManager.Domain\ppedv.UniversalBookManager.Domain.csproj", "{868A3D1A-3BE7-4C9B-B2F7-4E304347BE78}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{868A3D1A-3BE7-4C9B-B2F7-4E304347BE78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{868A3D1A-3BE7-4C9B-B2F7-4E304347BE78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{868A3D1A-3BE7-4C9B-B2F7-4E304347BE78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{868A3D1A-3BE7-4C9B-B2F7-4E304347BE78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{868A3D1A-3BE7-4C9B-B2F7-4E304347BE78} = {B930361A-C656-4951-8A10-DD63142AD668}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {719CD482-4663-47B4-90DE-56B044475EB8}
