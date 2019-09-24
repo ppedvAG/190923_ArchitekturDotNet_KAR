@@ -57,5 +57,19 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ppedv.UniversalBookManager.Data.EF\ppedv.UniversalBookManager.Data.EF.csproj">
+      <Project>{FE9A0AB7-2052-4C70-A17E-E8093E43E3DD}</Project>
+      <Name>ppedv.UniversalBookManager.Data.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ppedv.UniversalBookManager.Domain\ppedv.UniversalBookManager.Domain.csproj">
+      <Project>{868A3D1A-3BE7-4C9B-B2F7-4E304347BE78}</Project>
+      <Name>ppedv.UniversalBookManager.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ppedv.UniversalBookManager.Logic\ppedv.UniversalBookManager.Logic.csproj">
+      <Project>{F10B5757-E5E9-4C1F-AE33-8ABA65CC9E85}</Project>
+      <Name>ppedv.UniversalBookManager.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
