@@ -23,6 +23,13 @@ namespace ppedv.UniversalBookManager.UI.WPF.ViewModels
         }
         private readonly Core core;
 
+        // ObservableCollection() -> NotifyPropertyChanged für:
+        // Add(),Sort(), Remove(), Clear() o.ä
+
+        // BindingList() -> NotifyPropertyChanged
+        // --> Auch für Änderungen der Elemente selbst
+        // -> z.B. Title wird im DataGrid umgeändert 
+
         private Book[] books;
         public Book[] Books
         {
