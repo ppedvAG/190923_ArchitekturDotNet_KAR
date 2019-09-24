@@ -6,13 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ppedv.UniversalBookManager.UI.WPF.ViewModels
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel : BaseViewModel
     {
+        // Andere Variante: Fody/PropertyChanged
         public MainViewModel()
         {
             // Kontrollfreak-Antipattern
@@ -21,14 +23,16 @@ namespace ppedv.UniversalBookManager.UI.WPF.ViewModels
         }
         private readonly Core core;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public Book[] Books { get; set; }
+        private Book[] books;
+        public Book[] Books
+        {
+            get => books;
+            set => SetValue(ref books, value);
+        }
         public Command GetAllBooksCommand { get; set; }
         private void GetAllBooks()
         {
             Books = core.GetAllBooks();
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Books"));
         }
     }
 }
