@@ -4,9 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ppedv.UniversalBookManager.UI.WPF"
+        xmlns:vm="clr-namespace:ppedv.UniversalBookManager.UI.WPF.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="UniversalBookManager" Height="500" Width="600">
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+    
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button  Grid.Row="0" Content="Load Books" Margin="10" Command="{Binding GetAllBooksCommand}"/>
+        <!--<ListBox DisplayMemberPath="Title" Grid.Row="1" Margin="10" ItemsSource="{Binding Books}" />-->
+        <ListBox Grid.Row="1" Margin="10" ItemsSource="{Binding Books}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Title,StringFormat='{}Title: {0}'}"/>
+                        <TextBlock Text="{Binding Author,StringFormat='{}Author: {0}'}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
     </Grid>
 </Window>

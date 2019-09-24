@@ -23,6 +23,7 @@ namespace ppedv.UniversalBookManager.UI.WPF
         public MainWindow()
         {
             InitializeComponent();
+            // this.DataContext = new Mainviewmodel();
         }
     }
 }
