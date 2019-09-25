@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -73,7 +74,7 @@ namespace Async_Await_Demo
 
             textBoxEingabe.Text = "Vor dem Task"; // Zugriff auf ein Element vom UI-Thread aus
 
-            await MachEtwasMitDerProgressbar(); //.ConfigureAwait(false);
+            await  MachEtwasMitDerProgressbar(); //.ConfigureAwait(false);
 
             textBoxEingabe.Text = "Nach dem Task"; // Zugriff auf ein Element vom UI-Thread aus
             // ^ mit ConfigureAwait -> Exception, weil wir hier nicht mehr im UI-Thread sind !!!!!
@@ -107,6 +108,14 @@ namespace Async_Await_Demo
                     // "UI-Thread...bitte mach für mich xyz"
                 }
             });
+        }
+
+        public void Demo()
+        {
+            using(HttpClient client = new HttpClient())
+            {
+                string result = client.GetStringAsync("www.google.com").Result; // blockierend
+            }
         }
     }
 }
