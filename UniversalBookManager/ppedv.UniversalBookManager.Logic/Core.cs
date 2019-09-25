@@ -2,8 +2,10 @@
 using ppedv.UniversalBookManager.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace ppedv.UniversalBookManager.Logic
 {
@@ -14,6 +16,26 @@ namespace ppedv.UniversalBookManager.Logic
             this.UoW = UoW;
         }
         public IUnitOfWork UoW { get; set; } // Relevant wenn andere Klasse über Core.Repository auf die DB zugreifen müssen
+
+        // nur für XML: Erstellen von Testdaten für Data.XML
+        public void GenerateTestDataForXML()
+        {
+            Book[] books = new Book[]
+            {
+                new Book { Title = "Mein Garten", Author = "Tom Ate", Pages = 100, Price = 9.99m },
+                new Book { Title = "Urlaub in der Karibik", Author = "Anna Nass", Pages = 200, Price = 19.99m },
+                new Book { Title = "Küchen 1 mal 1", Author = "Peter Silie", Pages = 12, Price = 4.98m },
+                new Book { Title = "Reiseführer Paris", Author = "Franz Ose", Pages = 300, Price = 39.99m },
+                new Book { Title = "Faktencheck: Namen", Author = "Rainer Zufall", Pages = 40, Price = 0.99m }
+            };
+
+            XmlSerializer serializer = new XmlSerializer(typeof(Book[]));
+            FileStream stream = new FileStream("Books.xml", FileMode.Create);
+
+            serializer.Serialize(stream, books);
+            stream.Close();
+
+        }
 
         // Geschäftslogik
         public void GenerateTestData()
