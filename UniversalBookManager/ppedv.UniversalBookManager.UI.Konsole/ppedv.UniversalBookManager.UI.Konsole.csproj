@@ -62,6 +62,10 @@
       <Project>{FE9A0AB7-2052-4C70-A17E-E8093E43E3DD}</Project>
       <Name>ppedv.UniversalBookManager.Data.EF</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ppedv.UniversalBookManager.Data.XML\ppedv.UniversalBookManager.Data.XML.csproj">
+      <Project>{B5B49EB9-68AC-4455-A83C-EE9D5258DBED}</Project>
+      <Name>ppedv.UniversalBookManager.Data.XML</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ppedv.UniversalBookManager.Domain\ppedv.UniversalBookManager.Domain.csproj">
       <Project>{868A3D1A-3BE7-4C9B-B2F7-4E304347BE78}</Project>
       <Name>ppedv.UniversalBookManager.Domain</Name>

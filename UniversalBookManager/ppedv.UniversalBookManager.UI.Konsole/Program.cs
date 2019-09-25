@@ -1,4 +1,5 @@
 ﻿using ppedv.UniversalBookManager.Data.EF;
+using ppedv.UniversalBookManager.Data.XML;
 using ppedv.UniversalBookManager.Domain.Interfaces;
 using ppedv.UniversalBookManager.Logic;
 using System;
@@ -13,11 +14,8 @@ namespace ppedv.UniversalBookManager.UI.Konsole
     {
         static void Main(string[] args)
         {
-            Core core = new Core(new EFUnitOfWork());
-
-            // 2) Testdaten generieren, wenn keine Testdaten existieren
-            if(core.GetAllBooks().Length == 0) // nicht besonders perfomant ;)
-                core.GenerateTestData();
+            Core core = new Core(new XMLUnitOfWork());
+            core.GenerateTestDataForXML();
 
             foreach (var book in core.GetAllBooks())
             {
