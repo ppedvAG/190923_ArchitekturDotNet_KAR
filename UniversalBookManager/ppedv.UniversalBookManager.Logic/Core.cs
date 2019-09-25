@@ -11,11 +11,17 @@ namespace ppedv.UniversalBookManager.Logic
 {
     public class Core // Geschäftslogik
     {
-        public Core(IUnitOfWork UoW)
+        public Core(params IUnitOfWork[] UoW)
         {
             this.UoW = UoW;
         }
-        public IUnitOfWork UoW { get; set; } // Relevant wenn andere Klasse über Core.Repository auf die DB zugreifen müssen
+        private IUnitOfWork[] UoW { get; set; } // Relevant wenn andere Klasse über Core.Repository auf die DB zugreifen müssen
+
+        public IUnitOfWork GetUnitOfWorkFor<T>()
+        {
+            return UoW.First(x => x.SupportedTypes.Contains(typeof(T)));
+            // ToDo: Wenn es den Type nicht gibt -> Exception 
+        }
 
         // nur für XML: Erstellen von Testdaten für Data.XML
         public void GenerateTestDataForXML()
@@ -67,16 +73,16 @@ namespace ppedv.UniversalBookManager.Logic
             s3.Inventory.Add(new Inventory { Book = b4, Amount = 28 });
             s3.Inventory.Add(new Inventory { Book = b5, Amount = 29 });
 
-            UoW.StoreRepository.Add(s1);
-            UoW.StoreRepository.Add(s2);
-            UoW.StoreRepository.Add(s3);
-            UoW.Save(); // Store mit Inventory-Einträgen mit Bücher
+            GetUnitOfWorkFor<Store>().StoreRepository.Add(s1);
+            GetUnitOfWorkFor<Store>().StoreRepository.Add(s2);
+            GetUnitOfWorkFor<Store>().StoreRepository.Add(s3);
+            GetUnitOfWorkFor<Store>().Save(); // Store mit Inventory-Einträgen mit Bücher
         }
 
         public Book[] GetAllBooks()
         {
             // Spezialvariante
-            return UoW.BookRepository.GetAll().ToArray();
+            return GetUnitOfWorkFor<Book>().BookRepository.GetAll().ToArray();
 
             // Universalvariante
             // return UoW.GetRepository<Book>().GetAll().ToArray();

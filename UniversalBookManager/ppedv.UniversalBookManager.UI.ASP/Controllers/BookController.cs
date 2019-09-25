@@ -11,7 +11,8 @@ namespace ppedv.UniversalBookManager.UI.ASP.Controllers
 {
     public class BookController : Controller
     {
-        // 1) Core
+        // ToDo: Funktioniert das überhaupt mit XML ? -> Testen !!!!
+        // Wenn nicht -> In den Commits die alte Version mit direktem UoW raussuchen
         public BookController()
         {
             core = new Core(new EFUnitOfWork());
@@ -27,7 +28,7 @@ namespace ppedv.UniversalBookManager.UI.ASP.Controllers
         // GET: Book/Details/5
         public ActionResult Details(int id)
         {
-            return View(core.UoW.BookRepository.GetByID(id));
+            return View(core.GetUnitOfWorkFor<Book>().BookRepository.GetByID(id));
         }
 
         // GET: Book/Create
@@ -42,8 +43,8 @@ namespace ppedv.UniversalBookManager.UI.ASP.Controllers
         {
             try
             {
-                core.UoW.BookRepository.Add(newBook);
-                core.UoW.Save();
+                core.GetUnitOfWorkFor<Book>().BookRepository.Add(newBook);
+                core.GetUnitOfWorkFor<Book>().Save();
 
                 return RedirectToAction("Index");
             }
@@ -56,7 +57,7 @@ namespace ppedv.UniversalBookManager.UI.ASP.Controllers
         // GET: Book/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(core.UoW.BookRepository.GetByID(id));
+            return View(core.GetUnitOfWorkFor<Book>().BookRepository.GetByID(id));
         }
 
         // POST: Book/Edit/5
@@ -65,8 +66,8 @@ namespace ppedv.UniversalBookManager.UI.ASP.Controllers
         {
             try
             {
-                core.UoW.BookRepository.Update(editedBook);
-                core.UoW.Save();
+                core.GetUnitOfWorkFor<Book>().BookRepository.Update(editedBook);
+                core.GetUnitOfWorkFor<Book>().Save();
 
                 return RedirectToAction("Index");
             }
@@ -79,7 +80,7 @@ namespace ppedv.UniversalBookManager.UI.ASP.Controllers
         // GET: Book/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(core.UoW.BookRepository.GetByID(id));
+            return View(core.GetUnitOfWorkFor<Book>().BookRepository.GetByID(id));
         }
 
         // POST: Book/Delete/5
@@ -88,9 +89,9 @@ namespace ppedv.UniversalBookManager.UI.ASP.Controllers
         {
             try
             {
-                var loadedBook = core.UoW.BookRepository.GetByID(id);
-                core.UoW.BookRepository.Delete(loadedBook);
-                core.UoW.Save();
+                var loadedBook = core.GetUnitOfWorkFor<Book>().BookRepository.GetByID(id);
+                core.GetUnitOfWorkFor<Book>().BookRepository.Delete(loadedBook);
+                core.GetUnitOfWorkFor<Book>().Save();
 
                 return RedirectToAction("Index");
             }

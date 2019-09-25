@@ -56,6 +56,7 @@ namespace ppedv.UniversalBookManager.Data.EF
 
     public class EFUnitOfWork : IUnitOfWork
     {
+        public Type[] SupportedTypes => new Type[] { typeof(Store), typeof(Inventory) };
         public EFUnitOfWork() : this(new EFContext()) { } // UnitOfWork erstellt die Connection selbst
         public EFUnitOfWork(EFContext context) // ConnectionString kommt vom UI
         {

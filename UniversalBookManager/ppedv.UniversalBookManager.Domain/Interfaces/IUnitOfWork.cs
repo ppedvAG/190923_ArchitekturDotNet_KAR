@@ -6,6 +6,8 @@ namespace ppedv.UniversalBookManager.Domain.Interfaces
 {
     public interface IUnitOfWork
     {
+        Type[] SupportedTypes { get; }
+
         // Spezial:
         IBookRepository BookRepository { get; }
         IStoreRepository StoreRepository { get; }
