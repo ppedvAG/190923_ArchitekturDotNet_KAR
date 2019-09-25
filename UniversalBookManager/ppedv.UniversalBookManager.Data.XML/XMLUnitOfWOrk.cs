@@ -8,7 +8,7 @@ namespace ppedv.UniversalBookManager.Data.XML
 {
     public class XMLUnitOfWork : IUnitOfWork
     {
-        public IBookRepository BookRepository => throw new NotImplementedException();
+        public IBookRepository BookRepository => new XMLBookRepository();
 
         public IStoreRepository StoreRepository => throw new NotImplementedException();
 
