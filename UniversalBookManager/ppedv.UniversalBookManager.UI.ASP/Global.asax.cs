@@ -15,6 +15,9 @@ namespace ppedv.UniversalBookManager.UI.ASP
     {
         protected void Application_Start()
         {
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
@@ -24,7 +27,6 @@ namespace ppedv.UniversalBookManager.UI.ASP
             ModelBinders.Binders.Add(typeof(decimal), new DecimalModelBinder());
             ModelBinders.Binders.Add(typeof(decimal?), new DecimalModelBinder());
 
-            GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }
 }
