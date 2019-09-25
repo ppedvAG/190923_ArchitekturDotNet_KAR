@@ -43,7 +43,8 @@ namespace Async_Await_Demo
             // Parallel
             // Auf 2 Kerne beschränken:
             // Parallel.For(0, 100, new ParallelOptions { MaxDegreeOfParallelism = 2 }, i => { });
-        
+
+            Demo();
         }
 
         private void DispatcherTimer_Tick(object sender, EventArgs e)
@@ -114,7 +115,7 @@ namespace Async_Await_Demo
         {
             using(HttpClient client = new HttpClient())
             {
-                string result = client.GetStringAsync("www.google.com").Result; // blockierend
+                string result = client.GetStringAsync("https://jsonplaceholder.typicode.com/albums").Result; // blockierend
             }
         }
     }

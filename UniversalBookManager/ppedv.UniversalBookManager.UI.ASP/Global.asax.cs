@@ -7,7 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-
+using System.Web.Http;
+using System.Web.Routing;
 namespace ppedv.UniversalBookManager.UI.ASP
 {
     public class MvcApplication : System.Web.HttpApplication
@@ -22,6 +23,8 @@ namespace ppedv.UniversalBookManager.UI.ASP
             // https://stackoverflow.com/questions/14400643/accept-comma-and-dot-as-decimal-separator
             ModelBinders.Binders.Add(typeof(decimal), new DecimalModelBinder());
             ModelBinders.Binders.Add(typeof(decimal?), new DecimalModelBinder());
+
+            GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }
 }
