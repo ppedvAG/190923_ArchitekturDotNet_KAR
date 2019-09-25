@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Async und Await" Height="200" Width="400" WindowStartupLocation="CenterScreen">
     <StackPanel Margin="10">
-        <TextBox Margin="10"/>
+        <TextBox x:Name="textBoxEingabe" Margin="10"/>
         <Button Content="Start" Click="Button_Click" Margin="10"/>
         <ProgressBar x:Name="progressBarWert" Minimum="0" Maximum="100" Height="22" Margin="10"/>
     </StackPanel>

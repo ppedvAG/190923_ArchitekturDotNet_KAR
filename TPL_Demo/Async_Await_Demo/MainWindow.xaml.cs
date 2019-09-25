@@ -24,21 +24,30 @@ namespace Async_Await_Demo
         public MainWindow()
         {
             InitializeComponent();
-            TaskBeendetEvent += Callback;
-        }
-
-        private void Callback(object sender, EventArgs e)
-        {
-            MessageBox.Show("Ende");
         }
 
         public event EventHandler TaskBeendetEvent;
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Start");
 
-            Task.Run(() =>
+            //Task t1 = MachEtwasMitDerProgressbar()
+            //await t1; // warten, wie bei t1.Wait();... aber mit dem Unterschied
+
+            textBoxEingabe.Text = "Vor dem Task"; // Zugriff auf ein Element vom UI-Thread aus
+
+            await MachEtwasMitDerProgressbar(); //.ConfigureAwait(false);
+
+            textBoxEingabe.Text = "Nach dem Task"; // Zugriff auf ein Element vom UI-Thread aus
+            // ^ mit ConfigureAwait -> Exception, weil wir hier nicht mehr im UI-Thread sind !!!!!
+
+            MessageBox.Show("Ende");
+        }
+
+        public Task MachEtwasMitDerProgressbar()
+        {
+            return Task.Run(() =>
             {
                 for (int i = 0; i <= 100; i++)
                 {
@@ -46,10 +55,7 @@ namespace Async_Await_Demo
                     Dispatcher.Invoke(() => progressBarWert.Value = i);
                     // "UI-Thread...bitte mach für mich xyz"
                 }
-                TaskBeendetEvent?.Invoke(this, e);
             });
-
-        
         }
     }
 }
