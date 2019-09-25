@@ -18,7 +18,7 @@ namespace ppedv.UniversalBookManager.UI.WPF.ViewModels
         public MainViewModel()
         {
             // Kontrollfreak-Antipattern
-            core = new Core(new EFRepository(new EFContext()));
+            core = new Core(new EFUnitOfWork());
             GetAllBooksCommand = new Command(GetAllBooks);
         }
         private readonly Core core;

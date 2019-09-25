@@ -13,7 +13,7 @@ namespace ppedv.UniversalBookManager.UI.Konsole
     {
         static void Main(string[] args)
         {
-            Core core = new Core(new EFRepository(new EFContext()));
+            Core core = new Core(new EFUnitOfWork());
 
             // 2) Testdaten generieren, wenn keine Testdaten existieren
             if(core.GetAllBooks().Length == 0) // nicht besonders perfomant ;)

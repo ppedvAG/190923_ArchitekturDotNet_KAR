@@ -14,7 +14,7 @@ namespace ppedv.UniversalBookManager.UI.ASP.Controllers
         // 1) Core
         public BookController()
         {
-            core = new Core(new EFRepository(new EFContext()));
+            core = new Core(new EFUnitOfWork());
         }
         private readonly Core core;
 
@@ -27,7 +27,7 @@ namespace ppedv.UniversalBookManager.UI.ASP.Controllers
         // GET: Book/Details/5
         public ActionResult Details(int id)
         {
-            return View(core.Repository.GetByID<Book>(id));
+            return View(core.UoW.BookRepository.GetByID(id));
         }
 
         // GET: Book/Create
@@ -42,8 +42,8 @@ namespace ppedv.UniversalBookManager.UI.ASP.Controllers
         {
             try
             {
-                core.Repository.Add(newBook);
-                core.Repository.Save();
+                core.UoW.BookRepository.Add(newBook);
+                core.UoW.Save();
 
                 return RedirectToAction("Index");
             }
@@ -56,7 +56,7 @@ namespace ppedv.UniversalBookManager.UI.ASP.Controllers
         // GET: Book/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(core.Repository.GetByID<Book>(id));
+            return View(core.UoW.BookRepository.GetByID(id));
         }
 
         // POST: Book/Edit/5
@@ -65,8 +65,8 @@ namespace ppedv.UniversalBookManager.UI.ASP.Controllers
         {
             try
             {
-                core.Repository.Update(editedBook);
-                core.Repository.Save();
+                core.UoW.BookRepository.Update(editedBook);
+                core.UoW.Save();
 
                 return RedirectToAction("Index");
             }
@@ -79,7 +79,7 @@ namespace ppedv.UniversalBookManager.UI.ASP.Controllers
         // GET: Book/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(core.Repository.GetByID<Book>(id));
+            return View(core.UoW.BookRepository.GetByID(id));
         }
 
         // POST: Book/Delete/5
@@ -88,9 +88,9 @@ namespace ppedv.UniversalBookManager.UI.ASP.Controllers
         {
             try
             {
-                var loadedBook = core.Repository.GetByID<Book>(id);
-                core.Repository.Delete(loadedBook);
-                core.Repository.Save();
+                var loadedBook = core.UoW.BookRepository.GetByID(id);
+                core.UoW.BookRepository.Delete(loadedBook);
+                core.UoW.Save();
 
                 return RedirectToAction("Index");
             }
