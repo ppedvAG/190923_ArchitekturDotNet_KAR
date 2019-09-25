@@ -10,5 +10,6 @@
         <TextBox x:Name="textBoxEingabe" Margin="10"/>
         <Button Content="Start" Click="Button_Click" Margin="10"/>
         <ProgressBar x:Name="progressBarWert" Minimum="0" Maximum="100" Height="22" Margin="10"/>
+        <TextBlock x:Name="textBlockUhr" />
     </StackPanel>
 </Window>
