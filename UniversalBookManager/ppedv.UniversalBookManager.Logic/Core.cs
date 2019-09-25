@@ -9,11 +9,11 @@ namespace ppedv.UniversalBookManager.Logic
 {
     public class Core // Geschäftslogik
     {
-        public Core(IRepository repository)
+        public Core(IUnitOfWork UoW)
         {
-            this.Repository = repository;
+            this.UoW = UoW;
         }
-        public IRepository Repository { get; set; } // Relevant wenn andere Klasse über Core.Repository auf die DB zugreifen müssen
+        public IUnitOfWork UoW { get; set; } // Relevant wenn andere Klasse über Core.Repository auf die DB zugreifen müssen
 
         // Geschäftslogik
         public void GenerateTestData()
@@ -45,15 +45,19 @@ namespace ppedv.UniversalBookManager.Logic
             s3.Inventory.Add(new Inventory { Book = b4, Amount = 28 });
             s3.Inventory.Add(new Inventory { Book = b5, Amount = 29 });
 
-            Repository.Add(s1);
-            Repository.Add(s2);
-            Repository.Add(s3);
-            Repository.Save(); // Store mit Inventory-Einträgen mit Bücher
+            UoW.StoreRepository.Add(s1);
+            UoW.StoreRepository.Add(s2);
+            UoW.StoreRepository.Add(s3);
+            UoW.Save(); // Store mit Inventory-Einträgen mit Bücher
         }
 
         public Book[] GetAllBooks()
         {
-            return Repository.GetAll<Book>().ToArray();
+            // Spezialvariante
+            return UoW.BookRepository.GetAll().ToArray();
+
+            // Universalvariante
+            // return UoW.GetRepository<Book>().GetAll().ToArray();
         }
     }
 }
