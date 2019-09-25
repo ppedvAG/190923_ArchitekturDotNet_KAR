@@ -14,7 +14,7 @@ namespace ppedv.UniversalBookManager.Data.XML
         {
             XmlSerializer serializer = new XmlSerializer(typeof(Book[]));
 
-            FileStream stream = new FileStream("Books.xml", FileMode.Open);
+            FileStream stream = new FileStream("C:\\temp\\Books.xml", FileMode.Open);
             Book[] data = (Book[])serializer.Deserialize(stream);
             stream.Close();
 

@@ -1,4 +1,5 @@
 ﻿using ppedv.UniversalBookManager.Data.EF;
+using ppedv.UniversalBookManager.Data.XML;
 using ppedv.UniversalBookManager.Domain;
 using ppedv.UniversalBookManager.Logic;
 using System;
@@ -15,7 +16,8 @@ namespace ppedv.UniversalBookManager.UI.ASP.Controllers
         // Wenn nicht -> In den Commits die alte Version mit direktem UoW raussuchen
         public BookController()
         {
-            core = new Core(new EFUnitOfWork());
+            core = new Core(new EFUnitOfWork(), new XMLUnitOfWork());
+            core.GenerateTestDataForXML(); // Bei Book wird XML genutzt
         }
         private readonly Core core;
 

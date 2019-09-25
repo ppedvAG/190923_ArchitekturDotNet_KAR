@@ -36,7 +36,7 @@ namespace ppedv.UniversalBookManager.Logic
             };
 
             XmlSerializer serializer = new XmlSerializer(typeof(Book[]));
-            FileStream stream = new FileStream("Books.xml", FileMode.Create);
+            FileStream stream = new FileStream("C:\\temp\\Books.xml", FileMode.Create);
 
             serializer.Serialize(stream, books);
             stream.Close();
